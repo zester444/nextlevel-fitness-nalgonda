@@ -176,7 +176,7 @@ if (form) {
       form.querySelector('.form-note').style.display = 'none';
       // Open WhatsApp
       window.open(
-        `https://wa.me/919876543210?text=${encodeURIComponent(wa)}`,
+        `https://wa.me/918125092295?text=${encodeURIComponent(wa)}`,
         '_blank',
         'noopener,noreferrer'
       );
