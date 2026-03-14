@@ -772,6 +772,7 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   margin-top: .75rem;
 }
 
+.form-success[hidden] { display: none; }
 .form-success {
   display: flex;
   align-items: center;
