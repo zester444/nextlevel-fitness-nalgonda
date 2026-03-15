@@ -770,14 +770,14 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 
 .trainer-slide__photo {
   position: relative;
-  border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 3/4;
   max-height: 560px;
+  border-radius: var(--radius-lg);
 }
 @media (min-width: 860px) {
   .trainer-slide__photo {
-    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    border-radius: 0;
   }
 }
 @media (max-width: 860px) {
@@ -788,14 +788,6 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  background: #1a1a1a;
-}
-.trainer-slide__photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(13,13,13,.4) 0%, transparent 50%);
-  pointer-events: none;
 }
 
 /* Carousel controls */
