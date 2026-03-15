@@ -680,16 +680,11 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 @media (min-width: 860px) {
   .trainer-slide {
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    align-items: stretch;
+    gap: 4rem;
+    align-items: center;
   }
   .trainer-slide__copy {
-    padding-right: 4rem;
-    padding-bottom: clamp(3rem, 6vw, 5rem);
-  }
-  .trainer-slide__photo {
-    /* break out of container to fill right edge of viewport */
-    margin-right: calc(50% - 50vw);
+    padding-right: 2rem;
   }
 }
 
@@ -771,20 +766,13 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 .trainer-slide__photo {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 3/4;
-  max-height: 560px;
   border-radius: var(--radius-lg);
-}
-@media (min-width: 860px) {
-  .trainer-slide__photo {
-    border-radius: 0;
-    aspect-ratio: unset;
-    max-height: unset;
-    min-height: 520px;
-  }
+  aspect-ratio: 3/4;
+  max-height: 480px;
+  width: 100%;
 }
 @media (max-width: 860px) {
-  .trainer-slide__photo { aspect-ratio: 4/3; max-height: 320px; }
+  .trainer-slide__photo { aspect-ratio: 4/3; max-height: 300px; }
 }
 .trainer-slide__photo img {
   width: 100%;
