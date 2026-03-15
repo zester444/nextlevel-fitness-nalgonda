@@ -184,49 +184,6 @@ if (form) {
   });
 }
 
-// ---- TRAINER CAROUSEL ----
-const trainerTrack = document.getElementById('trainerTrack');
-const trainerPrev  = document.getElementById('trainerPrev');
-const trainerNext  = document.getElementById('trainerNext');
-const trainerDots  = document.getElementById('trainerDots');
-
-if (trainerTrack) {
-  const slides = Array.from(trainerTrack.querySelectorAll('.trainer-slide'));
-  let current = 0;
-
-  // Build dots
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'trainer-dot' + (i === 0 ? ' is-active' : '');
-    dot.setAttribute('aria-label', `Go to trainer ${i + 1}`);
-    dot.addEventListener('click', () => goTo(i));
-    trainerDots.appendChild(dot);
-  });
-
-  const dots = Array.from(trainerDots.querySelectorAll('.trainer-dot'));
-
-  const goTo = (index) => {
-    current = index;
-    trainerTrack.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
-    trainerPrev.disabled = current === 0;
-    trainerNext.disabled = current === slides.length - 1;
-  };
-
-  trainerPrev.addEventListener('click', () => goTo(current - 1));
-  trainerNext.addEventListener('click', () => goTo(current + 1));
-
-  // Swipe support on mobile
-  let touchStartX = 0;
-  trainerTrack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  trainerTrack.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) goTo(diff > 0 ? Math.min(current + 1, slides.length - 1) : Math.max(current - 1, 0));
-  });
-
-  goTo(0); // init
-}
-
 // ---- SMOOTH SCROLL for anchor links ----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
