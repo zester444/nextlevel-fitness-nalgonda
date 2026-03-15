@@ -788,6 +788,7 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  background: #1a1a1a;
 }
 .trainer-slide__photo::after {
   content: '';
