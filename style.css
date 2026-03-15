@@ -435,6 +435,11 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   line-height: 1;
   display: inline-block;
 }
+.stat__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
 .stat__plus {
   font-family: var(--font-display);
   font-weight: 900;
