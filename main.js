@@ -6,6 +6,15 @@
 
 'use strict';
 
+// ---- LOADER ----
+const loader = document.getElementById('loader');
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+  }, 600);
+});
+
 // ---- MOBILE NAV ----
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');

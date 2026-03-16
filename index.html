@@ -11,8 +11,107 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; }
+
+    .loader__logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      animation: loaderPulse 1.5s ease-in-out infinite;
+    }
+    .loader__logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: .04em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .loader__logo-text span { color: #F5A623; }
+
+    /* Barbell animation */
+    .loader__barbell {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .loader__plate {
+      width: 14px;
+      height: 40px;
+      background: #F5A623;
+      border-radius: 3px;
+      animation: loaderPlate 1.2s ease-in-out infinite;
+    }
+    .loader__plate--right { animation-delay: .6s; }
+    .loader__bar {
+      width: 120px;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+    .loader__bar::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, #F5A623, transparent);
+      animation: loaderSweep 1.2s ease-in-out infinite;
+    }
+    .loader__collar {
+      width: 8px;
+      height: 20px;
+      background: #555;
+      border-radius: 2px;
+    }
+
+    @keyframes loaderPulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .6; }
+    }
+    @keyframes loaderPlate {
+      0%, 100% { transform: scaleY(1); }
+      50%       { transform: scaleY(.85); }
+    }
+    @keyframes loaderSweep {
+      0%   { left: -100%; }
+      100% { left: 100%; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- LOADER -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader__logo">
+      <svg width="40" height="40" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="6" fill="#F5A623"/>
+        <path d="M6 18H9M27 18H30M9 18V13H12V23H9V18ZM27 18V13H24V23H27V18ZM12 18H24M15 13V23M21 13V23" stroke="#0D0D0D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="loader__logo-text">NEXT<span>LEVEL</span></span>
+    </div>
+    <div class="loader__barbell">
+      <div class="loader__plate loader__plate--left"></div>
+      <div class="loader__collar"></div>
+      <div class="loader__bar"></div>
+      <div class="loader__collar"></div>
+      <div class="loader__plate loader__plate--right"></div>
+    </div>
+  </div>
 
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
